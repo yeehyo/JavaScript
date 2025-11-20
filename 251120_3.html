@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .sub{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    JS - 웹 프론트엔드의 시작 / 웹 퍼블리셔로서의 종착지
+    *JS기초 - 1. 변수 2. 연산자 3. 조건문 4. 반복문 5. 함수/콜백 6. 객체
+    JS중급 - 각종 호이스팅외 용어와 용례, 화살표 함수같은 축약형 /+제이쿼리 ECMA-6 어떤것들
+    12 JS고급 - 서버연동 / apach tomcat, eclipse, 코파일럿 / 리액트, 뷰, 파이썬 
+    -->
+    <!--12 콘텐츠 : 프리미어, 에펙, 캡컷 -> 방송쪽 *다빈치 리졸브 / 카메라
+                                       프리랜싱 *(모션그래픽 (시4D) + 블랜더) -->
+    
+    <!--11/28 - 1. 슬리데린/ 그리핀도르 2. 포폴 컨셉(분위기)-->
+
+    <!--3대장 뼈HTML 내장배치CSS *심장, 뇌 가동Js = 웹 문서 살아-->
+    <!--JS : 드롭다운 메뉴, 반응형 메뉴, 회원가입-양식 검사, 슬라이드, 예약, 애니메이션, 구문 패키지 관리 -->
+    
+    <!--드롭다운 메뉴 JS로만-->
+    <ul id="menu">
+        <li>경험 디자인</li><!--1뎁스 메뉴-->
+            <ul class="sub">
+                <li>BX 브랜드 경험</li><!--2뎁스 메뉴-->
+                <li>UX 사용자 경험</li>
+                <li>AX 인공지능 경험</li>
+                <li>CX 서비스 경험</li>
+            </ul>
+    </ul>
+
+    <script>
+        /*순수 JS 로만 구현했을 때
+        let ilchaMenu = document.querySelector("#menu > li");
+
+        ilchaMenu.addEventListener("mouseover",function(){
+            document.querySelector(".sub").style.display = "block";
+        });
+
+        ilchaMenu.addEventListener("mouseout", function(){
+            document.querySelector(".sub").style.display = "none";
+        });
+        */
+
+        //제이쿼리로 쓰면?
+        $("#menu > li").hover(
+            function(){
+                $(".sub").stop().slideDown();
+            },
+            function(){
+                $(".sub").stop().slideUp();
+            }
+        );
+        //JS 형식 문법 구조를 따라감 
+    </script>
+</body>
+</html>
