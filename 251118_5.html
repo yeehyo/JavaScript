@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: beige;
+      }
+      .magic-box {
+        width: 200px; /*가로 크기*/
+        height: 200px; /*세로 크기*/
+        background-color: skyblue; /*배경색*/
+        display: flex; /*플렉스모드 선언*/
+        justify-content: center; /*주축 중앙 정렬*/
+        align-items: center; /*교차축 중앙 정렬*/
+        border-radius: 20px; /*모서리 둥글게*/
+        transition: all 0.4s; /*모든 효과 0.4초동안*/
+        cursor: pointer; /*커서 손가락*/
+        position: relative; /**/
+        font-size: 20px;
+        font-weight: 800;
+        color: white;
+      }
+
+      .magic-box:hover {
+        animation: shine 2s infinite;
+      }
+
+      @keyframes shine{
+        0% {box-shadow: 0 0 10px #f6a90e50;}
+        50% {box-shadow: 0 0 15px #c9ff0650;}
+        100% {box-shadow: 0 0 20px #ff8d0a50;}
+      }
+
+      /* 박스 뒤에서 빛나는 효과 */
+      .magic-box::before {
+        content: ""; /*가상의 공간 만들기*/
+        position: absolute; /*부모를 기준으로 움직이기*/
+        filter: blur(20px);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="magic-box">여기를 클릭!</div>
+    </div>
+
+    <script>
+      document.querySelector(".magic-box").onclick = function () {
+        var score = Number(prompt("점수를 입력하세요!"));
+
+        if (score >= 90) {
+          this.style.background = "gold";
+          this.textContent = "우와! 금메달!";
+        } else {
+          this.style.background = "royalblue";
+          this.textContent = "다음에 다시!";
+        }
+      };
+    </script>
+  </body>
+</html>
